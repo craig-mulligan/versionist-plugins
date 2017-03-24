@@ -41,6 +41,13 @@ module.exports = {
   **/
   push: (cwd, version, callback) => {
     console.log('Pushing...');
-    cmd('git', [ 'push', 'origin', 'master', '-f', '--tags' ], callback);
+    let remote;
+    if (process.env.TRAVIS) {
+      remote = `https://${process.env.GITHUB_TOKEN}@$github.com/${process.env.GITHUB_REPO}.git`;
+    } else {
+      remote = 'origin';
+    }
+
+    cmd('git', [ 'push', remote, 'master', '-f', '--tags' ], callback);
   }
 };
