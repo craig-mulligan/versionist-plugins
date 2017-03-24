@@ -6,10 +6,8 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "babel-node ./node_modules/.bin/_mocha",
-    "start": "babel-node watch",
     "lint": "eslint src/**",
     "docs": "jsdoc2md 'src/**/*.js' > DOCUMENTATION.md",
-    "readme": "( cat README.md && jsdoc2md 'src/**/*.js') > tmp.md && mv tmp.md README.md",
     "build": "babel src --out-dir dist --copy-files",
     "version": "versionist",
     "prepublish": "npm run build"
