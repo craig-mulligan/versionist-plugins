@@ -1,6 +1,6 @@
 {
   "name": "boilerroom",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A universal boilerplate for es6 modules",
   "repository": "https://github.com/craig-mulligan/boilerroom",
   "main": "dist/index.js",
@@ -9,7 +9,7 @@
     "lint": "eslint src/**",
     "docs": "jsdoc2md 'src/**/*.js' > DOCUMENTATION.md",
     "build": "babel src --out-dir dist --copy-files && npm run build-browser",
-    "build-browser": "webpack -p dist/index.js dist/bundle.js --output-library agileSDK",
+    "build-browser": "webpack -p dist/index.js dist/bundle.js --output-library boilerroom",
     "version": "versionist",
     "prepublish": "npm run build"
   },
