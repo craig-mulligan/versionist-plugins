@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.1 - 2017-03-24
 
+* Add docker cmd [craig-mulligan]
 * Add docs [craig-mulligan]
 
 ## v1.1.0 - 2017-03-24
