@@ -1,4 +1,5 @@
-import { exec } from 'child_process';
+const git = require('./git');
+const docker = require('./docker');
 
 /**
   * @namespace versionist-plugins
@@ -7,12 +8,11 @@ import { exec } from 'child_process';
   *
   * This document aims to describe all the functions supported by the module, as well as showing examples of their expected usage.
   *
-  * @param {object} - anything
   * @returns {Object}
   * @example
   * var plugins = require('versionist-plugins')
   * module.exports = {
-  *   updateVerion: [ plugins.commit, plugins.tag, plugins.push ]
+  *   updateVerion: [ plugins.git.commit, plugins.git.tag, plugins.git.push ]
   *   template: [
   *     '## v{{version}} - {{moment date "Y-MM-DD"}}',
   *     '',
@@ -26,65 +26,15 @@ import { exec } from 'child_process';
 
 const plugins = {
   /**
-  * @summary git commit with version as message
-  * @name commit
-  * @public
-  * @function
-  * @memberof plugins
-  * @param {string} cwd - Current working directory
-  * @param {string} version - Current version
-  * @param {callback} callback - The callback that handles the response.
+  * @namespace git
+  * @memberof versionist-plugins
   **/
-  commit: (cwd, version, callback) => {
-    console.log(`Committing... v${version}`);
-    exec(`git commit -a -m "v${version}"`, (err, data) => {
-      if (err) {
-        callback(err);
-      }
-      console.log('commited');
-      callback(null, data);
-    });
-  },
+  git,
   /**
-  * @summary git tag with version as message
-  * @name tag
-  * @public
-  * @function
-  * @memberof plugins
-  * @param {string} cwd - Current working directory
-  * @param {string} version - Current version
-  * @param {callback} callback - The callback that handles the response.
+  * @namespace docker
+  * @memberof versionist-plugins
   **/
-  tag: (cwd, version, callback) => {
-    console.log('Tagging...');
-    exec(`git tag v${version}`, (err, data) => {
-      if (err) {
-        callback(err);
-      }
-      console.log('Tagged');
-      callback(null, data);
-    });
-  },
-  /**
-  * @summary git push all commits + tags
-  * @name push
-  * @public
-  * @function
-  * @memberof plugins
-  * @param {string} cwd - Current working directory
-  * @param {string} version - Current version
-  * @param {callback} callback - The callback that handles the response.
-  **/
-  push: (cwd, version, callback) => {
-    console.log('Pushing...');
-    exec(`git push origin master --tags`, (err, data) => {
-      if (err) {
-        callback(err);
-      }
-      console.log('Pushed');
-      callback(null, data);
-    });
-  }
+  docker
 };
 
 module.exports = plugins;
