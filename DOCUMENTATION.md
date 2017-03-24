@@ -1,7 +1,7 @@
 <a name="versionist-plugins"></a>
 
 ## versionist-plugins ⇒ <code>Object</code>
-Welcome to the boileroom documentation.
+Welcome to the versionist-plugins documentation.
 
 This document aims to describe all the functions supported by the module, as well as showing examples of their expected usage.
 

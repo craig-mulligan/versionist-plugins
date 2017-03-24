@@ -6,4 +6,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.0 - 2017-03-24
 
+* Add commit, tag, push [craig-mulligan]
+* Clean up testing [craig-mulligan]
 * Init [craig-mulligan]
