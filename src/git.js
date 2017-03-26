@@ -43,7 +43,7 @@ module.exports = {
     console.log('Pushing...');
     let remote;
     if (process.env.TRAVIS) {
-      remote = `https://${process.env.GITHUB_TOKEN}@$github.com/${process.env.GITHUB_REPO}.git`;
+      remote = `https://${process.env.GITHUB_TOKEN}@github.com/${process.env.TRAVIS_REPO_SLUG}.git`;
     } else {
       remote = 'origin';
     }
