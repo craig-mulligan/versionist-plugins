@@ -41,13 +41,6 @@ module.exports = {
   **/
   push: (cwd, version, callback) => {
     console.log('Pushing...');
-    let remote;
-    if (process.env.TRAVIS) {
-      remote = `https://${process.env.GITHUB_TOKEN}@github.com/${process.env.TRAVIS_REPO_SLUG}.git`;
-    } else {
-      remote = 'origin';
-    }
-
-    cmd('git', [ 'push', remote, 'master', '-f', '--tags' ], callback);
+    cmd('git', [ 'push', 'origin', 'master', `v${version}` ], callback);
   }
 };
