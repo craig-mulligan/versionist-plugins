@@ -41,6 +41,6 @@ module.exports = {
   **/
   push: (cwd, version, callback) => {
     console.log('Pushing...');
-    cmd('git', [ 'push', 'origin', 'master', `v${version}` ], callback);
+    cmd('git', [ 'push', 'origin', 'master', `--tags` ], callback);
   }
 };
