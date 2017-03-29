@@ -55,6 +55,6 @@ module.exports = {
   **/
   pushTags: (cwd, version, callback) => {
     console.log('Pushing Tags...');
-    cmd('git', [ 'push', 'origin', `v${version}` ], callback);
+    cmd('git', [ 'push' ], callback);
   }
 };
