@@ -27,7 +27,7 @@ module.exports = {
   **/
   tag: (cwd, version, callback) => {
     console.log(`Tagging... v${version}`);
-    cmd('git', [ 'tag', `v${version}` ], callback);
+    cmd('git', [ 'tag', '-a', `v${version}`, '-m', `v${version} - automatically bumped by versionist` ], callback);
   },
   /**
   * @summary git push all commits + tags
@@ -41,20 +41,6 @@ module.exports = {
   **/
   push: (cwd, version, callback) => {
     console.log('Pushing...');
-    cmd('git', [ 'push', 'origin', 'master' ], callback);
-  },
-  /**
-  * @summary git push all commits + tags
-  * @name push
-  * @public
-  * @function
-  * @memberof git
-  * @param {string} cwd - Current working directory
-  * @param {string} version - Current version
-  * @param {callback} callback - The callback that handles the response.
-  **/
-  pushTags: (cwd, version, callback) => {
-    console.log('Pushing Tags...');
-    cmd('git', [ 'push' ], callback);
+    cmd('git', [ 'push', 'origin', 'master', '--tags' ], callback);
   }
 };

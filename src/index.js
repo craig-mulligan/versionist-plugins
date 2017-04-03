@@ -1,5 +1,6 @@
 const git = require('./git');
 const docker = require('./docker');
+const shouldDeploy = require('./should-deploy');
 
 /**
   * @namespace versionist-plugins
@@ -34,7 +35,12 @@ const plugins = {
   * @namespace docker
   * @memberof versionist-plugins
   **/
-  docker
+  docker,
+  /**
+  * @namespace shouldDeploy
+  * @memberof versionist-plugins
+  **/
+  shouldDeploy
 };
 
 module.exports = plugins;
